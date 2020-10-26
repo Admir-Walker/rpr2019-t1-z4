@@ -22,4 +22,11 @@ public class Artikl {
     public String getKod() {
         return kod;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Artikl temp = (Artikl) (obj);
+
+        return this.getNaziv().equals(temp.getNaziv()) &&  this.getCijena() == temp.getCijena() && this.getKod().equals(temp.getKod());
+    }
 }
