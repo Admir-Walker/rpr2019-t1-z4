@@ -21,15 +21,11 @@ class SupermarketTest {
         Artikl artikl = new Artikl("Test", 123, "123");
         Supermarket sm = new Supermarket();
         sm.dodajArtikl(artikl);
-        assertEquals(sm.izbaciArtiklSaKodom("123"), artikl);
-    }
-    @Test
-    void izbaciArtiklSaKodom2() {
-        Artikl artikl = new Artikl("Test", 123, "123");
         Artikl lazni = new Artikl("Test", 123, "124");
-        Supermarket sm = new Supermarket();
-        sm.dodajArtikl(artikl);
-        assertNotEquals(sm.izbaciArtiklSaKodom("123"), lazni);
+        assertAll(() -> {
+            assertEquals(sm.izbaciArtiklSaKodom("123"), artikl);
+            assertNotEquals(sm.izbaciArtiklSaKodom("123"), lazni);
+        });
     }
     @Test
     void getArtikli() {
